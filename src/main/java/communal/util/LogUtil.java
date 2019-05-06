@@ -1,6 +1,7 @@
 package communal.util;
 
-import org.slf4j.Logger;
+
+import org.apache.logging.log4j.Logger;
 
 public class LogUtil {
 
@@ -11,6 +12,11 @@ public class LogUtil {
     }
 
     public static void warn(Logger logger) {
+/*        logger.warn("[" + ProjectContact.PROJECT_NAME + "] - [入参] -     [" + methodName + "] - " + LogInfoEncryptUtil.getLogString(arguments) + "]");
+        logger.warn("[" + ProjectContact.PROJECT_NAME + "] - [返回结果] - [" + methodName + "] - " + LogInfoEncryptUtil.getLogString(result));*/
+    }
+
+    public static void warn(Logger logger, Exception e) {
 /*        logger.warn("[" + ProjectContact.PROJECT_NAME + "] - [入参] -     [" + methodName + "] - " + LogInfoEncryptUtil.getLogString(arguments) + "]");
         logger.warn("[" + ProjectContact.PROJECT_NAME + "] - [返回结果] - [" + methodName + "] - " + LogInfoEncryptUtil.getLogString(result));*/
     }

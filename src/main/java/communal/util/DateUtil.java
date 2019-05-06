@@ -85,6 +85,29 @@ public class DateUtil {
 	}
 
 	/**
+	 * Date转String
+	 * @return
+	 */
+	public static String dateFormatToString(String format) {
+
+		SimpleDateFormat format0 = new SimpleDateFormat(format);
+		String time = format0.format(new Date().getTime());
+		return time;
+	}
+
+	/**
+	 * Date转String
+	 * @param date
+	 * @return
+	 */
+	public static String dateFormatToString(Date date, String format) {
+
+		SimpleDateFormat format0 = new SimpleDateFormat(format);
+		String time = format0.format(date.getTime());
+		return time;
+	}
+
+	/**
 	 * String转Date
 	 * @param date
 	 * @return
@@ -167,7 +190,7 @@ public class DateUtil {
 	public static void main(String args[]) {
 
 		Date s = DateUtil.stringFormatDate("2018-10-10");
-		System.out.println(s.getTime());
+		System.out.println(DateUtil.dateFormatToString("yyyyMMddHHmmss"));
 /*
         DateUtil.StringFormatDate("2017-12-27 09:26:56");
         System.out.println(DateUtil.computOrderDateTime(DateUtil.StringFormatDate("2017-12-27 09:59:56")));

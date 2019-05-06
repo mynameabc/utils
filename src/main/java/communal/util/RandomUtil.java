@@ -9,7 +9,7 @@ public class RandomUtil {
 		String ccxl = generateNominateString(3);
 		System.out.println(ccxl);
 		
-		String ccxl2 = getNumber(18);
+		String ccxl2 = getNumber(12);
 		System.out.println(ccxl2);
 		
 		String ccxl3 = generateNominateNumber(3);
