@@ -80,6 +80,24 @@ public class ParameterUtil {
         }
     }
 
+    public static String stringCheck(String parameter, String tentativeValue, String defaultValue) {
+
+        if (null == parameter || "".equals(parameter)) {
+            return defaultValue;
+        } else {
+
+            if (parameter.trim().equals(tentativeValue.trim())) {
+                return defaultValue;
+            }
+
+            if (parameter.trim().length() >= 1) {
+                return parameter.trim();
+            } else {
+                return defaultValue;
+            }
+        }
+    }
+
     public static Integer integerCheck(String parameter, Integer defaultValue) {
 
         if (null == parameter || "".equals(parameter))
