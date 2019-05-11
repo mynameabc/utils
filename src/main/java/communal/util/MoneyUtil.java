@@ -4,17 +4,6 @@ import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
-
-
-/**
- * 目标：封装加减乘除操作的自定义工具类 原因：float ,double
- * 只能用来做科学计算或者工程计算，但在商业计算中要用java.math.BigDecimal 创建人: 李林君 邮箱：liljb@yonyou.com
- * 创建日期: 2013-9-28
- * <p>
- * 
- * @version 1.0
- * @since NC5.7
- */
 public class MoneyUtil {
 	
 	// 默认除法运算精度
@@ -117,84 +106,40 @@ public class MoneyUtil {
 		nf.setMaximumFractionDigits(5); //2表示精确到小数点后2位
 		return nf.format(p);
 	}
-	
+
 	/**
-	 * 判断v1是否大于v2
-	 * @param v1
-	 * @param v2
+	 * 判断parameter1是否大于parameter2
+	 * @param parameter1
+	 * @param parameter2
 	 * @return
 	 */
-	public static boolean GreaterThan(String v1, String v2) {
-		
-		BigDecimal b1 = new BigDecimal(v1);
-		BigDecimal b2 = new BigDecimal(v2);
-		
-		String _temp = b1.subtract(b2).toString();
-		
-		if (Double.parseDouble(_temp) > 0) {
-			return true;
-		}
-		
-		return false;
-	}
-	
-	/**
-	 * 判断v1是否大于或者等于v2
-	 * @param v1
-	 * @param v2
-	 * @return
-	 */
-	public static boolean Judgement(String v1, String v2) {
-		
-		BigDecimal b1 = new BigDecimal(v1);
-		BigDecimal b2 = new BigDecimal(v2);
-		
-		String _temp = b1.subtract(b2).toString();
-		
-		if (Double.parseDouble(_temp) >= 0) {
-			return true;
-		}
-		
-		return false;
-	}
-	
-	/**
-	 * 判断v1是否小于v2
-	 * @param v1
-	 * @param v2
-	 * @return
-	 */
-	public static boolean LessThan(String v1, String v2) {
-		
-		BigDecimal b1 = new BigDecimal(v1);
-		BigDecimal b2 = new BigDecimal(v2);
-		
-		String _temp = b1.subtract(b2).toString();
-		if (Double.parseDouble(_temp) < 0) {
-			return true;
-		}
-		
-		return false;
-	}
-	
-	/**
-	 * 判断v1是否和v2相等
-	 * @param v1
-	 * @param v2
-	 * @return
-	 */
-	public static boolean isEqual(String v1, String v2) {
-		
-		BigDecimal b1 = new BigDecimal(v1);
-		BigDecimal b2 = new BigDecimal(v2);
-		
-		String _temp = b1.subtract(b2).toString();
-		
-		if (Double.parseDouble(_temp) == 0) {
-			return true;
-		}
-		
-		return false;
+	public static boolean greaterThan(String parameter1, String parameter2) {
+		BigDecimal b1 = new BigDecimal(parameter1);
+		BigDecimal b2 = new BigDecimal(parameter2);
+		return (1 == b1.compareTo(b2)) ? (true) : (false);
 	}
 
+	/**
+	 * 判断parameter1是否小于parameter2
+	 * @param parameter1
+	 * @param parameter2
+	 * @return
+	 */
+	public static boolean lessThan(String parameter1, String parameter2) {
+		BigDecimal b1 = new BigDecimal(parameter1);
+		BigDecimal b2 = new BigDecimal(parameter2);
+		return (-1 == b1.compareTo(b2)) ? (true) : (false);
+	}
+	
+	/**
+	 * 判断parameter1是否和parameter2相等
+	 * @param parameter1
+	 * @param parameter2
+	 * @return
+	 */
+	public static boolean isEqual(String parameter1, String parameter2) {
+		BigDecimal b1 = new BigDecimal(parameter1);
+		BigDecimal b2 = new BigDecimal(parameter2);
+		return (0 == b1.compareTo(b2)) ? (true) : (false);
+	}
 }
