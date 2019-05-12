@@ -1,8 +1,11 @@
 package communal.util;
 
+import communal.exception.MoneyException;
+
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.util.regex.Pattern;
 
 public class MoneyUtil {
 	
@@ -132,14 +135,33 @@ public class MoneyUtil {
 	}
 	
 	/**
-	 * 判断parameter1是否和parameter2相等
-	 * @param parameter1
-	 * @param parameter2
+	 * 判断money1是否和money2相等
+	 * @param money1
+	 * @param money2
 	 * @return
 	 */
-	public static boolean isEqual(String parameter1, String parameter2) {
-		BigDecimal b1 = new BigDecimal(parameter1);
-		BigDecimal b2 = new BigDecimal(parameter2);
+	public static boolean isEqual(String money1, String money2) {
+		BigDecimal b1 = new BigDecimal(money1);
+		BigDecimal b2 = new BigDecimal(money2);
 		return (0 == b1.compareTo(b2)) ? (true) : (false);
+	}
+
+	/**
+	 * 判断money是否可以被当做金钱被计算
+	 * @param money
+	 * @return
+	 */
+	public static boolean isMoney(String money) {
+
+		return Pattern.compile("^(([1-9]{1}\\d*)|([0]{1}))(\\.(\\d){0,2})?$").matcher(money).matches(); //判断小数点后2位的数字的正则表达式
+	}
+
+	public static void main(String args[]) {
+
+		try {
+			System.out.println(MoneyUtil.getPercent("10000", "100"));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }
