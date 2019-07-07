@@ -15,6 +15,8 @@ public class MoneyUtil {
 	 */
 	private static final int PRECISION = 3;
 
+	private static MathContext mathContext = new MathContext(PRECISION);
+
 	// 不能实例化
 	private MoneyUtil() {}
 
@@ -30,7 +32,7 @@ public class MoneyUtil {
 	public static String add(String v1, String v2) {
 		BigDecimal b1 = new BigDecimal(v1);
 		BigDecimal b2 = new BigDecimal(v2);
-		return b1.add(b2, new MathContext(PRECISION)).toString();
+		return b1.add(b2, mathContext).toString();
 	}
 
 	/**
@@ -43,7 +45,7 @@ public class MoneyUtil {
 	public static String sub(String v1, String v2) {
 		BigDecimal b1 = new BigDecimal(v1);
 		BigDecimal b2 = new BigDecimal(v2);
-		return b1.subtract(b2, new MathContext(PRECISION)).toString();
+		return b1.subtract(b2, mathContext).toString();
 	}
 
 	/**
@@ -56,7 +58,7 @@ public class MoneyUtil {
 	public static String mul(String v1, String v2) {
 		BigDecimal b1 = new BigDecimal(v1);
 		BigDecimal b2 = new BigDecimal(v2);
-		return b1.multiply(b2, new MathContext(PRECISION)).toString();
+		return b1.multiply(b2, mathContext).toString();
 	}
 
 	/**
