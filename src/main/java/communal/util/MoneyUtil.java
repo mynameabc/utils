@@ -1,7 +1,5 @@
 package communal.util;
 
-import communal.exception.MoneyException;
-
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -151,17 +149,50 @@ public class MoneyUtil {
 	 * @param money
 	 * @return
 	 */
-	public static boolean isMoney(String money) {
+/*	public static boolean isMoney(String money) {
 
 		return Pattern.compile("^(([1-9]{1}\\d*)|([0]{1}))(\\.(\\d){0,2})?$").matcher(money).matches(); //判断小数点后2位的数字的正则表达式
+	}*/
+
+	/**
+	 * 判断money是否可以被当做金钱被计算
+	 * @param money
+	 * @return
+	 */
+	public static boolean isMoney(String money){
+
+		if(money == null || money.trim().length() == 0){
+			return false;
+		}
+
+		char[] chars = money.toCharArray();
+		int sz = chars.length;
+		int i = (chars[0] == '-') ? 1 : 0;
+		if(i == sz) return false;
+
+		if(chars[i] == '.') return false;//除了负号，第一位不能为'小数点'
+
+		boolean radixPoint = false;
+		for(; i < sz; i++){
+			if(chars[i] == '.'){
+				if(radixPoint) return false;
+				radixPoint = true;
+			}else if(!(chars[i] >= '0' && chars[i] <= '9')){
+				return false;
+			}
+		}
+		return true;
 	}
 
 	public static void main(String args[]) {
 
-		try {
+		String money = "-0.0123";
+		System.out.println(MoneyUtil.isMoney(money));
+
+/*		try {
 			System.out.println(MoneyUtil.getPercent("10000", "100"));
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
+		}*/
 	}
 }
