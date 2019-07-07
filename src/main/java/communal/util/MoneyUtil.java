@@ -1,18 +1,22 @@
 package communal.util;
 
 import java.math.BigDecimal;
+import java.math.MathContext;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
-import java.util.regex.Pattern;
 
 public class MoneyUtil {
 	
 	// 默认除法运算精度
 	private static final int DEF_DIV_SCALE = 16;
 
+	/**
+	 * 有效位数精度
+	 */
+	private static final int PRECISION = 3;
+
 	// 不能实例化
-	private MoneyUtil() {
-	}
+	private MoneyUtil() {}
 
 	/**
 	 * 说明： 提供精确的加法运算 创建人: 李林君 邮箱：liljb@yonyou.com 创建日期: 2013-9-28
@@ -24,11 +28,9 @@ public class MoneyUtil {
 	 * @return 两个参数的和
 	 */
 	public static String add(String v1, String v2) {
-
 		BigDecimal b1 = new BigDecimal(v1);
 		BigDecimal b2 = new BigDecimal(v2);
-
-		return b1.add(b2).toString();
+		return b1.add(b2, new MathContext(PRECISION)).toString();
 	}
 
 	/**
@@ -39,11 +41,9 @@ public class MoneyUtil {
 	 * @return
 	 */
 	public static String sub(String v1, String v2) {
-
 		BigDecimal b1 = new BigDecimal(v1);
 		BigDecimal b2 = new BigDecimal(v2);
-
-		return b1.subtract(b2).toString();
+		return b1.subtract(b2, new MathContext(PRECISION)).toString();
 	}
 
 	/**
@@ -54,11 +54,9 @@ public class MoneyUtil {
 	 * @return
 	 */
 	public static String mul(String v1, String v2) {
-
 		BigDecimal b1 = new BigDecimal(v1);
 		BigDecimal b2 = new BigDecimal(v2);
-
-		return b1.multiply(b2).toString();
+		return b1.multiply(b2, new MathContext(PRECISION)).toString();
 	}
 
 	/**
