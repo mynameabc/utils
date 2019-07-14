@@ -3,9 +3,21 @@ package communal.util;
 
 import org.apache.logging.log4j.Logger;
 
+import java.util.Arrays;
+
 public class LogUtil {
 
     public static void error(Logger logger) {
+/*
+
+        String logInfo = "";
+        logInfo += "\n[" + GlobalConstants.PROJECT_NAME + "] - [" + joinPoint.getTarget().getClass().getName() + "." + joinPoint.getSignature().getName() + "]\n";
+        logInfo += "[入参]      - " + Arrays.toString(joinPoint.getArgs()) + "\n";
+        logInfo += "[返回值]    - " + joinPoint.proceed() + "\n";
+        logInfo += "[异常信息]  - " + joinPoint.proceed() + "\n";
+        logger.info(logInfo);
+*/
+
 /*
         logger.error("[" + ProjectContact.PROJECT_NAME + "] - [入参] -     [" + methodName + "] - " + LogInfoEncryptUtil.getLogString(arguments) + "]");
         logger.error("[" + ProjectContact.PROJECT_NAME + "] - [返回结果] - [" + methodName + "] - " + LogInfoEncryptUtil.getLogString(result));*/
