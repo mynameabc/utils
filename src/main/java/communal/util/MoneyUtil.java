@@ -23,41 +23,41 @@ public class MoneyUtil {
 	/**
 	 * 说明： 提供精确的加法运算 创建人: 李林君 邮箱：liljb@yonyou.com 创建日期: 2013-9-28
 	 * 
-	 * @param v1
+	 * @param money1
 	 *            被加数
-	 * @param v2
+	 * @param money2
 	 *            加数
 	 * @return 两个参数的和
 	 */
-	public static String add(String v1, String v2) {
-		BigDecimal b1 = new BigDecimal(v1);
-		BigDecimal b2 = new BigDecimal(v2);
+	public static String add(String money1, String money2) {
+		BigDecimal b1 = new BigDecimal(money1);
+		BigDecimal b2 = new BigDecimal(money2);
 		return b1.add(b2, mathContext).toString();
 	}
 
 	/**
 	 * 说明： 提供精确的减法运算 创建人: 李林君 邮箱：liljb@yonyou.com 创建日期: 2013-9-28
 	 * 
-	 * @param v1
-	 * @param v2
+	 * @param money1
+	 * @param money2
 	 * @return
 	 */
-	public static String sub(String v1, String v2) {
-		BigDecimal b1 = new BigDecimal(v1);
-		BigDecimal b2 = new BigDecimal(v2);
+	public static String sub(String money1, String money2) {
+		BigDecimal b1 = new BigDecimal(money1);
+		BigDecimal b2 = new BigDecimal(money2);
 		return b1.subtract(b2, mathContext).toString();
 	}
 
 	/**
 	 * 说明： 提供精确的乘法运算 创建人: 李林君 邮箱：liljb@yonyou.com 创建日期: 2013-9-28
 	 * 
-	 * @param v1
-	 * @param v2
+	 * @param money1
+	 * @param money2
 	 * @return
 	 */
-	public static String mul(String v1, String v2) {
-		BigDecimal b1 = new BigDecimal(v1);
-		BigDecimal b2 = new BigDecimal(v2);
+	public static String mul(String money1, String money2) {
+		BigDecimal b1 = new BigDecimal(money1);
+		BigDecimal b2 = new BigDecimal(money2);
 		return b1.multiply(b2, mathContext).toString();
 	}
 
@@ -104,31 +104,31 @@ public class MoneyUtil {
 		String p = div(v1, v2);
 		DecimalFormat nf = (DecimalFormat) NumberFormat.getPercentInstance();
 		nf.applyPattern("0%"); //00表示小数点2位
-		nf.setMaximumFractionDigits(5); //2表示精确到小数点后2位
+		nf.setMaximumFractionDigits(PRECISION); //表示精确到小数点后PRECISION位
 		return nf.format(p);
 	}
 
 	/**
 	 * 判断parameter1是否大于parameter2
-	 * @param parameter1
-	 * @param parameter2
+	 * @param money1
+	 * @param money2
 	 * @return
 	 */
-	public static boolean greaterThan(String parameter1, String parameter2) {
-		BigDecimal b1 = new BigDecimal(parameter1);
-		BigDecimal b2 = new BigDecimal(parameter2);
+	public static boolean greaterThan(String money1, String money2) {
+		BigDecimal b1 = new BigDecimal(money1);
+		BigDecimal b2 = new BigDecimal(money2);
 		return (1 == b1.compareTo(b2)) ? (true) : (false);
 	}
 
 	/**
 	 * 判断parameter1是否小于parameter2
-	 * @param parameter1
-	 * @param parameter2
+	 * @param money1
+	 * @param money2
 	 * @return
 	 */
-	public static boolean lessThan(String parameter1, String parameter2) {
-		BigDecimal b1 = new BigDecimal(parameter1);
-		BigDecimal b2 = new BigDecimal(parameter2);
+	public static boolean lessThan(String money1, String money2) {
+		BigDecimal b1 = new BigDecimal(money1);
+		BigDecimal b2 = new BigDecimal(money2);
 		return (-1 == b1.compareTo(b2)) ? (true) : (false);
 	}
 	
