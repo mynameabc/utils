@@ -77,4 +77,8 @@ public class TokenProccessor {
             throw new RuntimeException(e);
         }
     }
+
+    public static void main(String args[]) {
+        TokenProccessor.getInstance().makeToken();
+    }
 }

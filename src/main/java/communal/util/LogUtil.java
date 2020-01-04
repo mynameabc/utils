@@ -1,12 +1,14 @@
 package communal.util;
 
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class LogUtil {
 
     public static void error(Logger logger) {
-/*
 
+/*
         String logInfo = "";
         logInfo += "\n[" + GlobalConstants.PROJECT_NAME + "] - [" + joinPoint.getTarget().getClass().getName() + "." + joinPoint.getSignature().getName() + "]\n";
         logInfo += "[入参]      - " + Arrays.toString(joinPoint.getArgs()) + "\n";
