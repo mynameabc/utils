@@ -45,6 +45,7 @@
         <swagger.version>2.7.0</swagger.version>
 
         <fat.version>1.55</fat.version>
+        <disruptor.version>3.4.2</disruptor.version>
 
     </properties>
 
@@ -89,6 +90,12 @@
                     <artifactId>javassist</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+        <!-- disruptor并发框架 -->
+        <dependency>
+            <groupId>com.lmax</groupId>
+            <artifactId>disruptor</artifactId>
+            <version>${disruptor.version}</version>
         </dependency>
         <!-- Google Guava工具包 -->
         <dependency>
