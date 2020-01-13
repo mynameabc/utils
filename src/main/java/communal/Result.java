@@ -1,20 +1,23 @@
 package communal;
 
+import lombok.Data;
+
 /**
  * 结果类
  * @author Administrator
  *
  */
+@Data
 public class Result {
 
-	private int code;
+	private String code;
 	private boolean success;
 	private String message;
 	private Object data;
 
 	public Result() {
 
-		this.code = 0;
+		this.code = "00000";
 		this.success = true;
 		this.message = "";
 		this.data = null;
@@ -27,6 +30,13 @@ public class Result {
 		this.message = message;
 	}
 
+	public Result(String code, String message) {
+
+		this();
+		this.code = code;
+		this.message = message;
+	}
+
 	public Result(boolean success, String message, Object data) {
 
 		this();
@@ -35,44 +45,18 @@ public class Result {
 		this.data = data;
 	}
 
-	public Result(boolean success, String message, Object data, int code) {
+	public Result(String code, String message, Object data) {
+		this();
+		this.message = message;
+		this.data = data;
+		this.code = code;
+	}
 
+	public Result(String code, boolean success, String message, Object data) {
 		this();
 		this.success = success;
 		this.message = message;
 		this.data = data;
 		this.code = code;
-	}
-
-	public int getCode() {
-		return code;
-	}
-
-	public void setCode(int code) {
-		this.code = code;
-	}
-
-	public boolean isSuccess() {
-		return success;
-	}
-
-	public void setSuccess(boolean success) {
-		this.success = success;
-	}
-
-	public String getMessage() {
-		return message;
-	}
-
-	public void setMessage(String message) {
-		this.message = message;
-	}
-
-	public Object getData() {
-		return data;
-	}
-
-	public void setData(Object data) {
-		this.data = data;
 	}
 }
