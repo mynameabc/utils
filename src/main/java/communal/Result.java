@@ -17,7 +17,7 @@ public class Result {
 
 	public Result() {
 
-		this.code = "00000";
+		this.code = "0000";
 		this.success = true;
 		this.message = "";
 		this.data = null;
