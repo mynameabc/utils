@@ -88,10 +88,15 @@
             <version>${disruptor.version}</version>
         </dependency>
         <!-- Google Guava工具包 -->
-        <dependency>
+<!--        <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>28.1-jre</version>
+        </dependency>-->
+        <dependency>
+            <groupId>eu.bitwalker</groupId>
+            <artifactId>UserAgentUtils</artifactId>
+            <version>1.21</version>
         </dependency>
         <!-- Apache工具组件 -->
         <dependency>
