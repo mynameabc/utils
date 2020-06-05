@@ -1,13 +1,10 @@
 package communal;
 
-import lombok.Data;
-
 /**
  * 结果类
  * @author Administrator
  *
  */
-@Data
 public class Result {
 
 	private String code;
