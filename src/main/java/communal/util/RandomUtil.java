@@ -14,6 +14,9 @@ public class RandomUtil {
 		
 		String ccxl3 = generateNominateNumber(3);
 		System.out.println(ccxl3);
+
+		String ccxl4 = generateserialVersionUID(19);
+		System.out.println(ccxl4);
 	}
 
 	public static final String allChar1 = "123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -29,6 +32,16 @@ public class RandomUtil {
 		Random random = new Random();
 		for (int i = 0; i < length; i++) {
 			sb.append(numberChar1.charAt(random.nextInt(numberChar1.length())));
+		}
+		return sb.toString();
+	}
+
+	public static String generateserialVersionUID(int length) {
+
+		StringBuffer sb = new StringBuffer();
+		Random random = new Random();
+		for (int i = 0; i < length; i++) {
+			sb.append(numberChar2.charAt(random.nextInt(numberChar2.length())));
 		}
 		return sb.toString();
 	}
