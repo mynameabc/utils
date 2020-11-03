@@ -15,10 +15,14 @@ public class TreeUtil {
 
     static final Integer DEFAULT_PARENT_ID = 0;  //最上级的节点其父节点默认值
 
-    private static List<TreeNode> getTree(List<TreeNode> treeNodeList) {
+    public static List<TreeNode> getTree(List<TreeNode> treeNodeList) {
+        return getTree(DEFAULT_PARENT_ID, treeNodeList);
+    }
+
+    public static List<TreeNode> getTree(Integer parentId, List<TreeNode> treeNodeList) {
         List<TreeNode> result = new ArrayList<>();
         for (TreeNode treeNode : treeNodeList) {
-            if (treeNode.getParentId().equals(DEFAULT_PARENT_ID)) {
+            if (treeNode.getParentId().equals(parentId)) {
                 result.add(treeNode);
             }
             for (TreeNode child : treeNodeList) {
