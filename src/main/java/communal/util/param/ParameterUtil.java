@@ -16,7 +16,7 @@ public class ParameterUtil {
             return null;
         }
 
-        return DateUtil.stringFormatDate(parameter);
+        return DateUtil.stringFormatToDate(parameter);
     }
 
     public static Date dateTimeCheck(String parameter, String added) {
@@ -27,7 +27,7 @@ public class ParameterUtil {
             return null;
         }
 
-        return DateUtil.stringFormatDateTime(parameter + " " + added);
+        return DateUtil.stringFormatToDate(parameter + " " + added);
     }
 
     public static BigDecimal bigDecimalCheck(String parameter, String defaultValue) {
