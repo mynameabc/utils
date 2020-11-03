@@ -11,7 +11,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDetail {
+public class UsersDetail {
 
     private long accountId;
 
