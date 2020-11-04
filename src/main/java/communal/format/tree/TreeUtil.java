@@ -20,20 +20,19 @@ public class TreeUtil {
     }
 
     public static List<TreeNode> getTreeAll(List<TreeNode> treeNodeList) {
-        treeNodeList = getTree(DEFAULT_PARENT_ID, treeNodeList);
-        treeNodeList = duplicateRemoval(treeNodeList);
         treeNodeList = comparatorSort(treeNodeList);
+        treeNodeList = getTree(DEFAULT_PARENT_ID, treeNodeList);
         return treeNodeList;
     }
 
     public static List<TreeNode> getTreeAll(Integer parentId, List<TreeNode> treeNodeList) {
-        treeNodeList = getTree(parentId, treeNodeList);
-        treeNodeList = duplicateRemoval(treeNodeList);
         treeNodeList = comparatorSort(treeNodeList);
+        treeNodeList = getTree(parentId, treeNodeList);
         return treeNodeList;
     }
 
     public static List<TreeNode> getTree(Integer parentId, List<TreeNode> treeNodeList) {
+
         List<TreeNode> result = new ArrayList<>();
         for (TreeNode treeNode : treeNodeList) {
             if (treeNode.getParentId().equals(parentId)) {
