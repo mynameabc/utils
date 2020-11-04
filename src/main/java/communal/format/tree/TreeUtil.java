@@ -15,10 +15,6 @@ public class TreeUtil {
 
     static final Integer DEFAULT_PARENT_ID = 0;  //最上级的节点其父节点默认值
 
-    public static List<TreeNode> getTree(List<TreeNode> treeNodeList) {
-        return getTree(DEFAULT_PARENT_ID, treeNodeList);
-    }
-
     public static List<TreeNode> getTreeAll(List<TreeNode> treeNodeList) {
         treeNodeList = comparatorSort(treeNodeList);
         treeNodeList = getTree(DEFAULT_PARENT_ID, treeNodeList);
@@ -29,6 +25,10 @@ public class TreeUtil {
         treeNodeList = comparatorSort(treeNodeList);
         treeNodeList = getTree(parentId, treeNodeList);
         return treeNodeList;
+    }
+
+    public static List<TreeNode> getTree(List<TreeNode> treeNodeList) {
+        return getTree(DEFAULT_PARENT_ID, treeNodeList);
     }
 
     public static List<TreeNode> getTree(Integer parentId, List<TreeNode> treeNodeList) {
