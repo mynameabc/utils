@@ -19,6 +19,20 @@ public class TreeUtil {
         return getTree(DEFAULT_PARENT_ID, treeNodeList);
     }
 
+    public static List<TreeNode> getTreeAll(List<TreeNode> treeNodeList) {
+        treeNodeList = getTree(DEFAULT_PARENT_ID, treeNodeList);
+        treeNodeList = duplicateRemoval(treeNodeList);
+        treeNodeList = comparatorSort(treeNodeList);
+        return treeNodeList;
+    }
+
+    public static List<TreeNode> getTreeAll(Integer parentId, List<TreeNode> treeNodeList) {
+        treeNodeList = getTree(parentId, treeNodeList);
+        treeNodeList = duplicateRemoval(treeNodeList);
+        treeNodeList = comparatorSort(treeNodeList);
+        return treeNodeList;
+    }
+
     public static List<TreeNode> getTree(Integer parentId, List<TreeNode> treeNodeList) {
         List<TreeNode> result = new ArrayList<>();
         for (TreeNode treeNode : treeNodeList) {
@@ -55,7 +69,7 @@ public class TreeUtil {
      * @param treeNodeList
      * @return
      */
-    public static List<TreeNode> ComparatorId(List<TreeNode> treeNodeList) {
+    public static List<TreeNode> comparatorId(List<TreeNode> treeNodeList) {
         treeNodeList = treeNodeList.stream().sorted(Comparator.comparing(TreeNode::getId)).collect(Collectors.toList());
         return getTree(treeNodeList);
     }
@@ -65,7 +79,7 @@ public class TreeUtil {
      * @param treeNodeList
      * @return
      */
-    public static List<TreeNode> ComparatorSort(List<TreeNode> treeNodeList) {
+    public static List<TreeNode> comparatorSort(List<TreeNode> treeNodeList) {
         treeNodeList = treeNodeList.stream().sorted(Comparator.comparing(TreeNode::getSort)).collect(Collectors.toList());
         return getTree(treeNodeList);
     }
@@ -122,8 +136,8 @@ public class TreeUtil {
         treeNodeList.add(treeNode1);
         treeNodeList.add(treeNode6);
 
-        List<TreeNode> treeNodeList2 = TreeUtil.ComparatorId(treeNodeList);
-        List<TreeNode> treeNodeList3 = TreeUtil.ComparatorSort(treeNodeList);
+        List<TreeNode> treeNodeList2 = TreeUtil.comparatorId(treeNodeList);
+        List<TreeNode> treeNodeList3 = TreeUtil.comparatorSort(treeNodeList);
         List<TreeNode> treeNodeList4 = TreeUtil.duplicateRemoval(treeNodeList);
 
         System.out.println(treeNode.getDataMap().get("C"));
