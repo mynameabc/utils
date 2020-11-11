@@ -6,7 +6,7 @@ public class RandomUtil {
 
 	public static void main(String[] args) {
 		
-		String ccxl = generateNominateString(3);
+		String ccxl = generateNominateString(64);
 		System.out.println(ccxl);
 		
 		String ccxl2 = getNumber(12);
