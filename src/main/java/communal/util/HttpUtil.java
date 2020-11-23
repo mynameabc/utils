@@ -15,6 +15,50 @@ public class HttpUtil {
 
     private final static String CHARSET = "UTF-8";
 
+    private final static String GET = "GET";
+
+    private final static String POST = "POST";
+
+    /**
+     * Get Http请求
+     * @param requestUrl 请求的地址
+     * @param parameter 参数
+     * @return 返回值
+     */
+    public static String getHttp(String requestUrl, String parameter) {
+        return httpRequest(requestUrl, GET, parameter);
+    }
+
+    /**
+     * Get Https请求
+     * @param requestUrl 请求的地址
+     * @param parameter 参数
+     * @return 返回值
+     */
+    public static String getHttps(String requestUrl, String parameter) {
+        return httpsRequest(requestUrl, GET, parameter);
+    }
+
+    /**
+     * Post Http请求
+     * @param requestUrl 请求的地址
+     * @param parameter 参数
+     * @return 返回值
+     */
+    public static String postHttp(String requestUrl, String parameter) {
+        return httpRequest(requestUrl, POST, parameter);
+    }
+
+    /**
+     * Post Https请求
+     * @param requestUrl 请求的地址
+     * @param parameter 参数
+     * @return 返回值
+     */
+    public static String postHttps(String requestUrl, String parameter) {
+        return httpsRequest(requestUrl, POST, parameter);
+    }
+
     /**
      * 发起https请求并返回结果
      * @param requestUrl    请求地址
@@ -22,12 +66,12 @@ public class HttpUtil {
      * @param outputStr     提交的数据
      * @return String
      */
-    public static String httpRequest(String requestUrl, String requestMethod, String outputStr) {
+    private static String httpRequest(String requestUrl, String requestMethod, String outputStr) {
         StringBuffer buffer = new StringBuffer();
         try {
             URL url = new URL(requestUrl);
             HttpsURLConnection httpUrlConn = (HttpsURLConnection) url.openConnection();
-            return aaa(httpUrlConn, requestMethod, outputStr, buffer);
+            return send(httpUrlConn, requestMethod, outputStr, buffer);
         } catch (ConnectException ce) {
             System.out.println("Weixin server connection timed out.");
         } catch (Exception e) {
@@ -37,13 +81,13 @@ public class HttpUtil {
     }
 
     /**
-     *
-     * @param requestUrl
-     * @param requestMethod
-     * @param outputStr
-     * @return
+     * 发起https请求并返回结果
+     * @param requestUrl    请求地址
+     * @param requestMethod 请求方式(GET, POST)
+     * @param outputStr     提交的数据
+     * @return String
      */
-    public static String httpsRequest(String requestUrl, String requestMethod, String outputStr) {
+    private static String httpsRequest(String requestUrl, String requestMethod, String outputStr) {
         StringBuffer buffer = new StringBuffer();
         try {
             // 创建SSLContext对象，并使用我们指定的信任管理器初始化
@@ -56,7 +100,7 @@ public class HttpUtil {
             URL url = new URL(requestUrl);
             HttpsURLConnection httpUrlConn = (HttpsURLConnection) url.openConnection();
             httpUrlConn.setSSLSocketFactory(ssf);
-            return aaa(httpUrlConn, requestMethod, outputStr, buffer);
+            return send(httpUrlConn, requestMethod, outputStr, buffer);
         } catch (ConnectException ce) {
             System.out.println("Weixin server connection timed out.");
         } catch (Exception e) {
@@ -65,7 +109,7 @@ public class HttpUtil {
         return null;
     }
 
-    private static String aaa(HttpsURLConnection httpUrlConn, String requestMethod, String outputStr, StringBuffer buffer) {
+    private static String send(HttpsURLConnection httpUrlConn, String requestMethod, String outputStr, StringBuffer buffer) {
 
         try {
             httpUrlConn.setDoOutput(true);
@@ -90,7 +134,7 @@ public class HttpUtil {
             InputStreamReader inputStreamReader = new InputStreamReader(inputStream, CHARSET);
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 
-            String str = null;
+            String str;
             while ((str = bufferedReader.readLine()) != null) {
                 buffer.append(str);
             }
