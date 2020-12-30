@@ -71,6 +71,11 @@ public class HttpUtil {
         try {
             URL url = new URL(requestUrl);
             HttpsURLConnection httpUrlConn = (HttpsURLConnection) url.openConnection();
+            httpUrlConn.setRequestProperty("accept", "*/*");
+            httpUrlConn.setRequestProperty("connection", "Keep-Alive");
+            httpUrlConn.setRequestProperty("user-agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;SV1)");
+            httpUrlConn.setRequestProperty("content-type", "application/json; charset=utf-8");
+            httpUrlConn.setDoOutput(true);
             return send(httpUrlConn, requestMethod, outputStr, buffer);
         } catch (ConnectException ce) {
             System.out.println("Weixin server connection timed out.");
