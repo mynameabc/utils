@@ -41,6 +41,14 @@ public class DataTypeUtil {
         return null != jsonObject && !jsonObject.isEmpty();
     }
 
+    public static boolean isEmpty(Long cs) {
+        return cs == null;
+    }
+
+    public static boolean isNotEmpty(Long cs) {
+        return !isEmpty(cs);
+    }
+
     public static void main(String args[]) {
 
         List s = new ArrayList();
