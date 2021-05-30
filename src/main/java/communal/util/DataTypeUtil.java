@@ -1,5 +1,7 @@
 package communal.util;
 
+import com.alibaba.fastjson.JSONObject;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -29,6 +31,22 @@ public class DataTypeUtil {
 
     public static boolean isNotEmpty(Map<?, ?> map) {
         return null != map && !map.isEmpty();
+    }
+
+    public static boolean isEmpty(JSONObject jsonObject) {
+        return null == jsonObject || jsonObject.isEmpty();
+    }
+
+    public static boolean isNotEmpty(JSONObject jsonObject) {
+        return null != jsonObject && !jsonObject.isEmpty();
+    }
+
+    public static boolean isEmpty(Long cs) {
+        return cs == null;
+    }
+
+    public static boolean isNotEmpty(Long cs) {
+        return !isEmpty(cs);
     }
 
     public static void main(String args[]) {
