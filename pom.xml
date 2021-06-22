@@ -58,6 +58,7 @@
             <version>5.0.0</version>
         </dependency>
         <!-- 序列化协议的系列化框架 -->
+        <!--
         <dependency>
             <groupId>de.ruedigermoeller</groupId>
             <artifactId>fst</artifactId>
@@ -69,6 +70,7 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        -->
         <!-- disruptor并发框架 -->
         <dependency>
             <groupId>com.lmax</groupId>
@@ -76,11 +78,11 @@
             <version>${disruptor.version}</version>
         </dependency>
         <!-- Google Guava工具包 -->
-        <dependency>
+<!--        <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>29.0-jre</version>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>eu.bitwalker</groupId>
             <artifactId>UserAgentUtils</artifactId>
@@ -114,6 +116,7 @@
             <version>1.18.8</version>
         </dependency>
         <!-- swagger依赖-->
+        <!--
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
@@ -135,6 +138,7 @@
             <artifactId>swagger-models</artifactId>
             <version>1.5.23</version>
         </dependency>
+        -->
     </dependencies>
 
     <build>

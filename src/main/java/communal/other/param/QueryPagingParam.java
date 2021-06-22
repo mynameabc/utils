@@ -1,11 +1,13 @@
+/*
 package communal.other.param;
 
 import io.swagger.annotations.ApiModelProperty;
-
+*/
 /**
  * @Author: 林少君
  * @Date: 2020/7/17 16:30
  */
+/*
 public class QueryPagingParam {
 
     @ApiModelProperty(name = "page", value = "页码", dataType = "integer")
@@ -30,3 +32,4 @@ public class QueryPagingParam {
         this.size = size;
     }
 }
+*/
